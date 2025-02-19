@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap" rel="stylesheet"> <!-- Google Font -->
+    <title>นิทานอีสป</title>
+    <style>
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+            text-align: center;
+        }
+
+        /* Layout สำหรับกริดของบล็อก */
+        .blog-con {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 2rem;
+            row-gap: 2rem;
+            justify-content: center;
+            margin: 40px;
+        }
+
+        .blog-item {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .blog-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .blog-item img:hover {
+            opacity: 0.8;
+        }
+
+        .blog-item h3 {
+            text-align: center;
+            font-size: 20px;
+            padding: 10px 0;
+            background-color:#082601; 
+            color: white;
+            margin: 0;
+            border-bottom: 4px solid #0f7b00;
+            border-radius: 0 0 15px 15px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .blog-con {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blog-con {
+                grid-template-columns: 1fr;
+            }
+        }
+        body {
+            font-family: 'Kanit', sans-serif;
+            margin: 0;
+            background-color: #cfedd3;
+            color: #333;
+        }
+
+        /* แถบเมนูด้านบน */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(45deg,#082601, #01550e);
+            color: white;
+            padding: 15px 30px;
+        }
+
+        header .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+            position: relative; /* เพิ่มเพื่อให้สามารถแสดง dropdown ได้ */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 15px;
+        }
+
+        nav ul li a:hover {
+            background-color:#082601;
+            border-radius: 5px;
+        }
+
+        .login-btn {
+            background-color: #0c4400;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .login-btn:hover {
+            background-color: #082601;
+        }
+
+        /* สไตล์สำหรับเมนู dropdown */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f2f2f2;
+            min-width: 160px;
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        nav ul li:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #082601;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color:  #cfedd3;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar with Menu -->
+    <header>
+        <div class="logo">นิทานอีสป</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">หน้าแรก</a></li>
+                <li><a href="all.html">นิทานทั้งหมด</a></li>
+                <li>
+                    <a href="#">นิทานใหม่</a>
+                    <div class="dropdown-content">
+                        <a href="นกพิราบกับมด.html">นกพิราบกับมด</a>
+                        <a href="ลากับหนังสิงโต.html">ลากับหนังสิงโต</a>
+                        <a href="หมาจิ้งจอกกับองุ่น.html">หมาจิ้งจอกกับองุ่น</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">นิทานที่กำลังได้รับความนิยม</a>
+                    <div class="dropdown-content">
+                        <a href="กระต่ายกับเต่า.html">🥇กระต่ายกับเต่า</a>
+                        <a href="คนตัดไม้กับเทพารักษ์.html">🥈คนตัดไม้กับเทพารักษ์</a>
+                        <a href="กบเลือกนาย.html">🥉กบเลือกนาย</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">ติดต่อเรา</a>
+                    <div class="dropdown-content">
+                        <a href="#">แบบฟอร์มติดต่อ</a>
+                        <a href="#">ข้อมูลติดต่อ</a>
+                        <a href="#">แผนที่</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <button class="login-btn">คุณธนัช 🙎 </button>
+    </header>
+</body>
+</html>
+
+
+<section class="blog">
+    <div class="blog-con">
+        <div class="blog-item">
+            <a href="Dog and shadow.html" class="blog-btn"><img src="dognew.jpg" alt="หมากับเงา" /></a>
+            <h3>เรื่อง หมากับเงา</h3>
+        </div>
+
+        <div class="blog-item">
+            <a href="The Shepherd Boy.html" class="blog-btn"><img src="dek.jpg" alt="เด็กเลี้ยงแกะ" width="250" height="250"/></a>
+            <h3>เรื่อง เด็กเลี้ยงแกะ</h3>
+        </div>
+
+        <div class="blog-item">
+            <a href="The Tortoise and the Hare.html" class="blog-btn"><img src="kt.jpg" alt="กระต่ายกับเต่า" width="250" height="250"/></a>
+            <h3>เรื่อง กระต่ายกับเต่า</h3>
+        </div>
+
+        <div class="blog-item">
+            <a href="The Lion and the Mouse.html" class="blog-btn"><img src="st.jpg" alt="ราชสีห์กับหนู" width="250" height="250" /></a>
+            <h3>เรื่อง ราชสีห์กับหนู</h3>
+        </div>
+
+        <div class="blog-item">
+            <a href="The Crow and the Pitcher.html" class="blog-btn"><img src="ka.jpg" alt="อีกากับเหยือกน้ำ" width="250" height="250"/></a>
+            <h3>เรื่อง อีกากับเหยือกน้ำ</h3>
+        </div>
+
+        <div class="blog-item">
+            <a href="The Mother Crab and the Baby Crab.html" class="blog-btn"><img src="pu.jpg" alt="แม่ปูกับลูกปู" width="250" height="250"/></a>
+            <h3>เรื่อง แม่ปูกับลูกปู</h3>
+        </div>
+
+        <div class="blog-item">
+            <a href="The Stork and the Fox.html" class="blog-btn"><img src="nok.jpg" alt="นกกระสากับหมาจิ้งจอก" width="250" height="250"/></a>
+            <h3>เรื่อง นกกระสากับหมาจิ้งจอก</h3>
+        </div>
+
+        <div class="blog-item">
+            <a href="The Frog Who Wanted a King.html" class="blog-btn"><img src="kop.jpg" alt="กบเลือกนาย" width="250" height="250"/></a>
+            <h3>เรื่อง กบเลือกนาย</h3>
+        </div>
+
+        <div class="blog-item">
+            <a href="The Hen and the Gem.html" class="blog-btn"><img src="kai.jpg" alt="ไก่ได้พลอย" width="250" height="250"/></a>
+            <h3>เรื่อง ไก่ได้พลอย</h3>
+        </div>
+
+        <div class="blog-item">
+            <a href="The Fox and the Grapes.html" class="blog-btn"><img src="jj.jpg" ait="หมาจิ้งจอกกับองุ่น"  width="250" height="250"/></a>
+            <h3>เรื่อง หมาจิ้งจอกกับองุ่น</h3>
+        </div>
+
+        <div class="blog-item">
+            <a href="The Wind and the Sun.html" class="blog-btn"><img src="lom (2).jpg" alt="ลมกับดวงอาทิตย์" width="250" height="250"/></a>
+            <h3>เรื่อง ลมกับดวงอาทิตย์</h3>
+        </div>
+
+        <div class="blog-item">
+            <a href="The Dove and the Ant.html" class="blog-btn"><img src="nod.jpg" alt="นกพิราบกับมด" width="250" height="250"/></a>
+            <h3>เรื่อง นกพิราบกับมด</h3>
+        </div>
+
+        <div class="blog-item">
+            <a href="The Woodcutter and the Guardian Spirit.html" class="blog-btn"><img src="kon.jpg" alt="คนตัดไม้กับเทพารักษ์" width="250" height="250"/></a>
+            <h3>เรื่อง คนตัดไม้กับเทพารักษ์</h3>
+        </div>
+
+        <div class="blog-item">
+            <a href="The Lion's Skin and the Fox.html" class="blog-btn"><img src="lar.jpg" alt="ลากับหนังสิงโต" width="250" height="250"/></a>
+            <h3>เรื่อง ลากับหนังสิงโต</h3>
+        </div>
+
+        <div class="blog-item">
+            <a href="The Crow and the Peacock.html" class="blog-btn"><img src="kaaa.jpg" alt="กากับนกยูง" width="250" height="250"/></a>
+            <h3>เรื่อง กากับนกยูง</h3>
+        </div>
+
+        <div class="blog-item">
+            <a href="The Salt Merchant and His Donkey.html" class="blog-btn"><img src="pk1.jpg" alt="พ่อค้าเกลือกับลา" width="250" height="250"/></a>
+            <h3>เรื่อง พ่อค้าเกลือกับลา</h3>
+        </div>
+
+        <div class="blog-item">
+            <a href="The Bear and the Honey.html" class="blog-btn"><img src="bar1.jpg" alt="หมีกับนํ้าผึ้ง" width="250" height="250"/></a>
+            <h3>เรื่อง หมีกับนํ้าผึ้ง</h3>
+        </div>
+
+        <div class="blog-item">
+            <a href="The Goose Who Wanted to Be a Swan.html" class="blog-btn"><img src="harn1.jpg" alt="ห่านอยากเป็นหงส์" width="250" height="250"/></a>
+            <h3>เรื่อง ห่านอยากเป็นหงส์</h3>
+        </div>
+    </div>
+
+</section>
+        
+</body>
+</html>
